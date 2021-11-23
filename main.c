@@ -13,7 +13,7 @@ int main()
     char arr[11]={'\0'};
     int i,len;
 
-    while(in != 13)
+    while(in != 13) //Press Enter to End The Program
     {
         gotoxy1(x,y);
 
@@ -22,29 +22,32 @@ int main()
         {
             in=getch();
 
-            if(in==77)
+            if(in==77) //Right Arrow
             {
                 if(x>10)
                     x=0;
                 else
                     x++;
             }
-            else if(in==75)
+            else if(in==75) //Left Arrow
             {
                 if(x<1)
                     x=10;
                 else
                     x--;
             }
-            else if(in == 79)
+            else if(in == 79) //End key
                 x = 10;
 
-            else if(in == 71)
+            else if(in == 71) //Home key
                 x = 0;
 
-            else if(in == 82)
+            else if(in == 82) //Insert Key
             {
                 len = strlen(arr);
+
+                if(len==10)
+                    arr[len-1] = '\0';
 
                 for(i=len;i>x;i--)
                 {
@@ -53,51 +56,63 @@ int main()
                 arr[x]=' ';
                 system("cls");
                 printf("%s",arr);
+                gotoxy1(x,y);
+                in = getch();
+                arr[x] = in;
+                system("cls");
+                printf("%s",arr);
             }
 
-            else if(in == 83)
+            else if(in == 83) //Delete Key
             {
                 arr[x]=' ';
+                system("cls");
+                printf("%s",arr);
+                gotoxy1(x,y);
+                in = getch();
+                arr[x] = in;
                 system("cls");
                 printf("%s",arr);
             }
 
         }
 
-        else if(in == 8)
+        else if(in == 8) //BackSpace Key
         {
             len = strlen(arr);
 
-            for(i=x;i<len;i++)
+            if (x>0)
             {
-                arr[i-1]=arr[i];
-            }
-            arr[len-1]=' ';
-            system("cls");
-
-            if(x!=0)
-                x--;
-            printf("%s",arr);
-        }
-
-        else if(in>=32 && in<=127)
-        {
-            len = strlen(arr);
-
-            for(i=len;i>x;i--)
+                for(i=x;i<len;i++)
                 {
-                    arr[i]=arr[i-1];
+                    arr[i-1]=arr[i];
                 }
 
-            arr[x] = in;
+                arr[len-1]='\0';
+                x--;
 
-            system("cls");
-            printf("%s",arr);
+                system("cls");
+                printf("%s",arr);
+            }
 
-            if(x==9)
-                x=0;
-            else
-                x++;
+        }
+
+        else if(in>=32 && in<=127) //Normal Insert
+        {
+            len = strlen(arr);
+
+            if (len < 10)
+            {
+                arr[len] = in;
+
+                system("cls");
+                printf("%s",arr);
+
+                /*if(x==9)
+                    x=0;
+                else
+                    x++;*/
+            }
         }
 
     }
