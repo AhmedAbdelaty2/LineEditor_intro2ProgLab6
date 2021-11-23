@@ -25,8 +25,10 @@ int main()
             if(in==77) //Right Arrow
             {
                 len = strlen(arr);
+
                 if(x>len-1)
                     x=0;
+
                 else
                     x++;
             }
@@ -34,8 +36,10 @@ int main()
             else if(in==75) //Left Arrow
             {
                 len = strlen(arr);
+
                 if(x<1)
                     x=len;
+
                 else
                     x--;
             }
@@ -62,11 +66,15 @@ int main()
                 }
 
                 arr[x]=' ';
+
                 system("cls");
                 printf("%s",arr);
+
                 gotoxy1(x,y);
                 in = getch();
+
                 arr[x] = in;
+
                 system("cls");
                 printf("%s",arr);
             }
@@ -134,7 +142,6 @@ int main()
         }
     }
 
-    len = strlen(arr);
     gotoxy1(20,20);
     printf("%s",arr);
 
