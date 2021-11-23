@@ -16,8 +16,8 @@ int main()
     while(in != 13) //Press Enter to End The Program
     {
         gotoxy1(x,y);
-
         in=getch();
+
         if(in==-32)
         {
             in=getch();
@@ -30,6 +30,7 @@ int main()
                 else
                     x++;
             }
+
             else if(in==75) //Left Arrow
             {
                 len = strlen(arr);
@@ -38,6 +39,7 @@ int main()
                 else
                     x--;
             }
+
             else if(in == 79) //End key
             {
                 len = strlen(arr);
@@ -58,6 +60,7 @@ int main()
                 {
                     arr[i]=arr[i-1];
                 }
+
                 arr[x]=' ';
                 system("cls");
                 printf("%s",arr);
@@ -71,11 +74,15 @@ int main()
             else if(in == 83) //Delete Key
             {
                 arr[x]=' ';
+
                 system("cls");
                 printf("%s",arr);
+
                 gotoxy1(x,y);
                 in = getch();
+
                 arr[x] = in;
+
                 system("cls");
                 printf("%s",arr);
             }
@@ -112,6 +119,7 @@ int main()
                 {
                     arr[i]=arr[i-1];
                 }
+
                 arr[x] = in;
 
                 system("cls");
@@ -119,11 +127,11 @@ int main()
 
                 if(x==9)
                     x=0;
+
                 else
                     x++;
             }
         }
-
     }
 
     len = strlen(arr);
