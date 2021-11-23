@@ -24,15 +24,17 @@ int main()
 
             if(in==77) //Right Arrow
             {
-                if(x>10)
+                len = strlen(arr);
+                if(x>len-1)
                     x=0;
                 else
                     x++;
             }
             else if(in==75) //Left Arrow
             {
+                len = strlen(arr);
                 if(x<1)
-                    x=10;
+                    x=len;
                 else
                     x--;
             }
@@ -103,8 +105,6 @@ int main()
         else if(in>=32 && in<=127) //Normal Insert
         {
             len = strlen(arr);
-            if(len==10)
-                arr[len] = '\0';
 
             if (len < 10)
             {
