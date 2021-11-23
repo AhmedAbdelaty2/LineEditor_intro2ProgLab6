@@ -37,7 +37,10 @@ int main()
                     x--;
             }
             else if(in == 79) //End key
-                x = 10;
+            {
+                len = strlen(arr);
+                x = len;
+            }
 
             else if(in == 71) //Home key
                 x = 0;
@@ -100,18 +103,24 @@ int main()
         else if(in>=32 && in<=127) //Normal Insert
         {
             len = strlen(arr);
+            if(len==10)
+                arr[len] = '\0';
 
             if (len < 10)
             {
-                arr[len] = in;
+                for(i=len;i>x;i--)
+                {
+                    arr[i]=arr[i-1];
+                }
+                arr[x] = in;
 
                 system("cls");
                 printf("%s",arr);
 
-                /*if(x==9)
+                if(x==9)
                     x=0;
                 else
-                    x++;*/
+                    x++;
             }
         }
 
